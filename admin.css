@@ -1,0 +1,140 @@
+/*
+ * Sageus Theme Admin Styles
+ *
+ * Styles for the WordPress admin area when using Sageus theme
+ */
+
+/* Customizer styles */
+#customize-controls .sageus-radio-image-control {
+	margin: 15px 0;
+}
+
+#customize-controls .sageus-radio-image-label {
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	padding: 10px;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+#customize-controls .sageus-radio-image-label:hover {
+	border-color: #999;
+}
+
+#customize-controls .sageus-radio-image-label input[type="radio"] {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	pointer-events: none;
+}
+
+#customize-controls .sageus-radio-image-label img {
+	max-width: 100px;
+	height: auto;
+	margin-bottom: 5px;
+	border-radius: 3px;
+}
+
+#customize-controls .sageus-radio-image-label:checked {
+	border-color: #2271b1;
+	background-color: #f0f0f1;
+}
+
+/* Theme options panel */
+#customize-controls .panel-sageus_theme_options {
+	background: #f9f9f9;
+}
+
+#customize-controls .panel-sageus_theme_options .control-section {
+	margin: 10px 0;
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+}
+
+#customize-controls .panel-sageus_theme_options .control-section:last-child {
+	border-bottom: none;
+}
+
+/* Dropdown pages control */
+#customize-controls .customize-control-select select {
+	width: 100%;
+	padding: 8px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+}
+
+#customize-controls .customize-control-select select:focus {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.2);
+}
+
+/* Textarea controls */
+#customize-controls textarea {
+	width: 100%;
+	padding: 8px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	font-family: monospace;
+	font-size: 13px;
+	line-height: 1.5;
+	min-height: 100px;
+}
+
+#customize-controls textarea:focus {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.2);
+}
+
+/* Color picker */
+#customize-controls .wp-color-picker {
+	width: 100%;
+}
+
+/* Section headers */
+#customize-controls .customize-control-title {
+	font-weight: 600;
+	color: #222;
+	margin-bottom: 5px;
+}
+
+/* Descriptions */
+#customize-controls .description.customize-control-description {
+	font-size: 13px;
+	color: #666;
+	margin-top: 5px;
+}
+
+/* Widget area */
+#widgets-right .widget {
+	margin-bottom: 20px;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+
+#widgets-right .widget-title {
+	font-weight: 600;
+	color: #222;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+/* Portfolio widget */
+#widgets-right .widget-sageus-portfolio {
+	background: #f9f9f9;
+}
+
+#widgets-right .widget-sageus-portfolio .widget-title:before {
+	content: "\f113";
+	font-family: dashicons;
+	font-size: 20px;
+	vertical-align: middle;
+	margin-right: 5px;
+	color: #82b541;
+}
