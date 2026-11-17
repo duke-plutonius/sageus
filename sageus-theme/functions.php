@@ -94,7 +94,7 @@ function sageus_setup() {
 	// Add excerpt support for pages
 	add_post_type_support( 'page', 'excerpt' );
 }
-add_action( 'after_setup_theme', 'sageus_'setup' );
+add_action( 'after_setup_theme', 'sageus_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet
@@ -119,12 +119,12 @@ function sageus_content_width() {
 	 *
 	 * @param int $content_width Content width in pixels.
 	 */
-	$content_width = apply_filters( 'sageus_'content_width', $content_width );
+	$content_width = apply_filters( 'sageus_content_width', $content_width );
 	
 	// Finally, set the content width
 	$GLOBALS['content_width'] = absint( $content_width );
 }
-add_action( 'after_setup_theme', 'sageus_'content_width', 0 );
+add_action( 'after_setup_theme', 'sageus_content_width', 0 );
 
 /**
  * Register widget areas
@@ -165,7 +165,7 @@ function sageus_widgets_init() {
 		) );
 	}
 }
-add_action( 'widgets_init', 'sageus_'widgets_init' );
+add_action( 'widgets_init', 'sageus_widgets_init' );
 
 /**
  * Enqueue scripts and styles
@@ -194,7 +194,7 @@ function sageus_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'sageus_'scripts' );
+add_action( 'wp_enqueue_scripts', 'sageus_scripts' );
 
 /**
  * Enqueue admin styles
@@ -205,7 +205,7 @@ function sageus_admin_styles( $hook ) {
 		wp_enqueue_style( 'sageus-theme-admin', get_template_directory_uri() . '/css/admin.css', array(), SAGEUS_VERSION );
 	}
 }
-add_action( 'admin_enqueue_scripts', 'sageus_'admin_styles' );
+add_action( 'admin_enqueue_scripts', 'sageus_admin_styles' );
 
 /**
  * Load theme customizer
@@ -257,7 +257,7 @@ function sageus_excerpt_length( $length ) {
 	}
 	return 55;
 }
-add_filter( 'excerpt_length', 'sageus_'excerpt_length' );
+add_filter( 'excerpt_length', 'sageus_excerpt_length' );
 
 /**
  * Filter the excerpt more text
@@ -268,7 +268,7 @@ function sageus_excerpt_more( $more ) {
 	}
 	return '...';
 }
-add_filter( 'excerpt_more', 'sageus_'excerpt_more' );
+add_filter( 'excerpt_more', 'sageus_excerpt_more' );
 
 /**
  * Add body classes for different page types
@@ -296,7 +296,7 @@ function sageus_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'sageus_'body_classes' );
+add_filter( 'body_class', 'sageus_body_classes' );
 
 /**
  * Modify the read more link
@@ -304,7 +304,7 @@ add_filter( 'body_class', 'sageus_'body_classes' );
 function sageus_modify_read_more_link() {
 	return '<a class="more-link" href="' . esc_url( get_permalink() ) . '">' . esc_html__( 'Read More', 'sageus-theme' ) . '</a>';
 }
-add_filter( 'the_content_more_link', 'sageus_'modify_read_more_link' );
+add_filter( 'the_content_more_link', 'sageus_modify_read_more_link' );
 
 /**
  * Add pingback url auto-discovery header for singularly identifiable articles
@@ -314,7 +314,7 @@ function sageus_pingback_header() {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'sageus_'pingback_header' );
+add_action( 'wp_head', 'sageus_pingback_header' );
 
 /**
  * Display portfolio panel on front page
@@ -328,7 +328,7 @@ function sageus_display_portfolio_panel( $limit = 6 ) {
 		$post_type = 'portfolio';
 	} else {
 		// Use the fallback portfolio post type
-		$post_type = 'sageus_'portfolio';
+		$post_type = 'sageus_portfolio';
 	}
 
 	$args = array(
@@ -348,8 +348,8 @@ function sageus_display_portfolio_panel( $limit = 6 ) {
 				while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post();
 					$featured_image = get_the_post_thumbnail_url( get_the_ID(), 'sageus-theme-square' );
 					$terms = get_the_terms( get_the_ID(), 'jetpack-portfolio-type' );
-					if ( ! $terms && post_type_exists( 'sageus_'portfolio' ) ) {
-						$terms = get_the_terms( get_the_ID(), 'sageus_'portfolio_type' );
+					if ( ! $terms && post_type_exists( 'sageus_portfolio' ) ) {
+						$terms = get_the_terms( get_the_ID(), 'sageus_portfolio_type' );
 					}
 					
 					?>
@@ -461,7 +461,7 @@ function sageus_add_social_icon_class( $items, $menu, $args ) {
 
 	return $items;
 }
-add_filter( 'wp_nav_menu_objects', 'sageus_'add_social_icon_class', 10, 3 );
+add_filter( 'wp_nav_menu_objects', 'sageus_add_social_icon_class', 10, 3 );
 
 /**
  * Modify the menu item output to add icon spans
@@ -489,7 +489,7 @@ function sageus_add_social_icon_span( $item_output, $item, $depth, $args ) {
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'sageus_'add_social_icon_span', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'sageus_add_social_icon_span', 10, 4 );
 
 /**
  * Remove the social icon class from the menu item output
@@ -508,4 +508,4 @@ function sageus_clean_social_menu_classes( $classes, $item, $args ) {
 
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'sageus_'clean_social_menu_classes', 10, 3 );
+add_filter( 'nav_menu_css_class', 'sageus_clean_social_menu_classes', 10, 3 );
