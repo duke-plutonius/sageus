@@ -73,10 +73,10 @@ $is_blog = ( is_home() || ( is_front_page() && 'posts' === get_option( 'show_on_
 												
 												<div class="post-meta">
 													<span class="post-date">
-														<?php sageus-theme_posted_on(); ?>
+														<?php sageus_posted_on(); ?>
 													</span>
 													<span class="post-author">
-														<?php sageus-theme_posted_by(); ?>
+														<?php sageus_posted_by(); ?>
 													</span>
 												</div>
 											</header>
@@ -111,8 +111,8 @@ $is_blog = ( is_home() || ( is_front_page() && 'posts' === get_option( 'show_on_
 											
 											if ( 'post' === get_post_type() ) :
 												<div class="entry-meta">
-													<?php sageus-theme_posted_on(); ?>
-													<?php sageus-theme_posted_by(); ?>
+													<?php sageus_posted_on(); ?>
+													<?php sageus_posted_by(); ?>
 												</div>
 											endif;
 										?>
@@ -147,7 +147,7 @@ $is_blog = ( is_home() || ( is_front_page() && 'posts' === get_option( 'show_on_
 									</div>
 									
 									<footer class="entry-footer">
-										<?php sageus-theme_entry_footer(); ?>
+										<?php sageus_entry_footer(); ?>
 									</footer>
 								</article>
 								<?php

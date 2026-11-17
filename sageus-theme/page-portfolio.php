@@ -38,7 +38,7 @@ get_header();
 								the_content();
 								
 								// Display portfolio items
-								sageus-theme_display_portfolio_items( 120, '' );
+								sageus_display_portfolio_items( 120, '' );
 								?>
 						</div>
 						

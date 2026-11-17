@@ -27,8 +27,8 @@ get_header();
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								
 								<div class="entry-meta">
-									<?php sageus-theme_posted_on(); ?>
-									<?php sageus-theme_posted_by(); ?>
+									<?php sageus_posted_on(); ?>
+									<?php sageus_posted_by(); ?>
 								</div>
 							</header>
 							
@@ -44,7 +44,7 @@ get_header();
 							</div>
 							
 							<footer class="entry-footer">
-								<?php sageus-theme_entry_footer(); ?>
+								<?php sageus_entry_footer(); ?>
 								
 								<?php
 									if ( get_edit_post_link() ) :

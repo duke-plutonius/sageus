@@ -8,7 +8,7 @@
 /**
  * Register Portfolio post type if no portfolio plugin is active
  */
-function sageus-theme_register_portfolio_post_type() {
+function sageus_register_portfolio_post_type() {
 	// Check if Jetpack Portfolio is active
 	if ( class_exists( 'Jetpack_Portfolio' ) && post_type_exists( 'jetpack-portfolio' ) ) {
 		return;
@@ -55,7 +55,7 @@ function sageus-theme_register_portfolio_post_type() {
 		'description'           => __( 'Portfolio items for showcasing your work', 'sageus-theme' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'post-formats' ),
-		'taxonomies'            => array( 'sageus-theme_portfolio_type' ),
+		'taxonomies'            => array( 'sageus_portfolio_type' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -70,17 +70,17 @@ function sageus-theme_register_portfolio_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
-		'rest_base'             => 'sageus-theme_portfolio',
+		'rest_base'             => 'sageus_portfolio',
 	);
 
-	register_post_type( 'sageus-theme_portfolio', $args );
+	register_post_type( 'sageus_portfolio', $args );
 }
-add_action( 'init', 'sageus-theme_register_portfolio_post_type' );
+add_action( 'init', 'sageus_register_portfolio_post_type' );
 
 /**
  * Register Portfolio Type taxonomy
  */
-function sageus-theme_register_portfolio_taxonomy() {
+function sageus_register_portfolio_taxonomy() {
 	// Check if Jetpack Portfolio is active
 	if ( class_exists( 'Jetpack_Portfolio' ) && taxonomy_exists( 'jetpack-portfolio-type' ) ) {
 		return;
@@ -116,20 +116,20 @@ function sageus-theme_register_portfolio_taxonomy() {
 	);
 
 	// Register taxonomy for both custom portfolio and Jetpack portfolio (if it exists later)
-	register_taxonomy( 'sageus-theme_portfolio_type', array( 'sageus-theme_portfolio' ), $args );
+	register_taxonomy( 'sageus_portfolio_type', array( 'sageus_portfolio' ), $args );
 	
 	// Also register for 'portfolio' post type if it exists
 	if ( post_type_exists( 'portfolio' ) ) {
-		register_taxonomy_for_object_type( 'sageus-theme_portfolio_type', 'portfolio' );
+		register_taxonomy_for_object_type( 'sageus_portfolio_type', 'portfolio' );
 	}
 }
-add_action( 'init', 'sageus-theme_register_portfolio_taxonomy' );
+add_action( 'init', 'sageus_register_portfolio_taxonomy' );
 
 /**
  * Create a portfolio page template
  * This function checks if a page uses the portfolio template and displays portfolio items
  */
-function sageus-theme_portfolio_template_content( $content ) {
+function sageus_portfolio_template_content( $content ) {
 	// Only run on pages with portfolio template
 	if ( ! is_page() ) {
 		return $content;
@@ -145,7 +145,7 @@ function sageus-theme_portfolio_template_content( $content ) {
 		ob_start();
 		
 		// Display portfolio items
-		sageus-theme_display_portfolio_items();
+		sageus_display_portfolio_items();
 		
 		$portfolio_content = ob_get_clean();
 		
@@ -160,12 +160,12 @@ function sageus-theme_portfolio_template_content( $content ) {
 
 	return $content;
 }
-add_filter( 'the_content', 'sageus-theme_portfolio_template_content' );
+add_filter( 'the_content', 'sageus_portfolio_template_content' );
 
 /**
  * Display portfolio items
  */
-function sageus-theme_display_portfolio_items( $limit = -1, $category = '' ) {
+function sageus_display_portfolio_items( $limit = -1, $category = '' ) {
 	// Check if Jetpack Portfolio plugin is active
 	if ( class_exists( 'Jetpack_Portfolio' ) && post_type_exists( 'jetpack-portfolio' ) ) {
 		$post_type = 'jetpack-portfolio';
@@ -175,8 +175,8 @@ function sageus-theme_display_portfolio_items( $limit = -1, $category = '' ) {
 		$taxonomy = 'portfolio_type';
 	} else {
 		// Use the fallback portfolio post type
-		$post_type = 'sageus-theme_portfolio';
-		$taxonomy = 'sageus-theme_portfolio_type';
+		$post_type = 'sageus_portfolio';
+		$taxonomy = 'sageus_portfolio_type';
 	}
 
 	$args = array(
@@ -307,66 +307,66 @@ function sageus-theme_display_portfolio_items( $limit = -1, $category = '' ) {
 /**
  * Flush rewrite rules on theme activation
  */
-function sageus-theme_activate() {
+function sageus_activate() {
 	// Register post type and taxonomy first
-	sageus-theme_register_portfolio_post_type();
-	sageus-theme_register_portfolio_taxonomy();
+	sageus_register_portfolio_post_type();
+	sageus_register_portfolio_taxonomy();
 	
 	// Flush rewrite rules
 	flush_rewrite_rules();
 }
-add_action( 'after_setup_theme', 'sageus-theme_activate' );
+add_action( 'after_setup_theme', 'sageus_activate' );
 
 /**
  * Deactivate theme cleanup
  */
-function sageus-theme_deactivate() {
+function sageus_deactivate() {
 	// Flush rewrite rules
 	flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'sageus-theme_deactivate' );
+register_deactivation_hook( __FILE__, 'sageus_deactivate' );
 
 /**
  * Add portfolio rewrite rules
  */
-function sageus-theme_portfolio_rewrite_rules() {
+function sageus_portfolio_rewrite_rules() {
 	// Add rewrite rule for portfolio archive
-	add_rewrite_rule( '^portfolio/?$', 'index.php?post_type=sageus-theme_portfolio', 'top' );
-	add_rewrite_rule( '^portfolio/page/([0-9]{1,})/?$', 'index.php?post_type=sageus-theme_portfolio&paged=$matches[1]', 'top' );
+	add_rewrite_rule( '^portfolio/?$', 'index.php?post_type=sageus_portfolio', 'top' );
+	add_rewrite_rule( '^portfolio/page/([0-9]{1,})/?$', 'index.php?post_type=sageus_portfolio&paged=$matches[1]', 'top' );
 	
 	// Add rewrite rule for portfolio type taxonomy
-	add_rewrite_rule( '^portfolio-type/([^/]+)/?$', 'index.php?sageus-theme_portfolio_type=$matches[1]', 'top' );
-	add_rewrite_rule( '^portfolio-type/([^/]+)/page/([0-9]{1,})/?$', 'index.php?sageus-theme_portfolio_type=$matches[1]&paged=$matches[2]', 'top' );
+	add_rewrite_rule( '^portfolio-type/([^/]+)/?$', 'index.php?sageus_portfolio_type=$matches[1]', 'top' );
+	add_rewrite_rule( '^portfolio-type/([^/]+)/page/([0-9]{1,})/?$', 'index.php?sageus_portfolio_type=$matches[1]&paged=$matches[2]', 'top' );
 }
-add_action( 'init', 'sageus-theme_portfolio_rewrite_rules' );
+add_action( 'init', 'sageus_portfolio_rewrite_rules' );
 
 /**
  * Change the portfolio archive title
  */
-function sageus-theme_portfolio_archive_title( $title ) {
-	if ( is_post_type_archive( 'sageus-theme_portfolio' ) || is_post_type_archive( 'jetpack-portfolio' ) || is_post_type_archive( 'portfolio' ) ) {
+function sageus_portfolio_archive_title( $title ) {
+	if ( is_post_type_archive( 'sageus_portfolio' ) || is_post_type_archive( 'jetpack-portfolio' ) || is_post_type_archive( 'portfolio' ) ) {
 		$title = esc_html__( 'Portfolio', 'sageus-theme' );
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'sageus-theme_portfolio_archive_title' );
+add_filter( 'get_the_archive_title', 'sageus_portfolio_archive_title' );
 
 /**
  * Add portfolio template to page template dropdown
  */
-function sageus-theme_add_portfolio_template( $templates ) {
+function sageus_add_portfolio_template( $templates ) {
 	$templates['page-portfolio.php'] = esc_html__( 'Portfolio Template', 'sageus-theme' );
 	return $templates;
 }
-add_filter( 'theme_page_templates', 'sageus-theme_add_portfolio_template' );
+add_filter( 'theme_page_templates', 'sageus_add_portfolio_template' );
 
 /**
  * Register portfolio template
  */
-function sageus-theme_register_portfolio_template( $template ) {
+function sageus_register_portfolio_template( $template ) {
 	if ( is_page_template( 'page-portfolio.php' ) ) {
 		$template = get_template_directory() . '/page-portfolio.php';
 	}
 	return $template;
 }
-add_filter( 'template_include', 'sageus-theme_register_portfolio_template' );
+add_filter( 'template_include', 'sageus_register_portfolio_template' );

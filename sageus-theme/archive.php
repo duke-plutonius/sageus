@@ -37,8 +37,8 @@ get_header();
 										
 										if ( 'post' === get_post_type() ) :
 											<div class="entry-meta">
-												<?php sageus-theme_posted_on(); ?>
-												<?php sageus-theme_posted_by(); ?>
+												<?php sageus_posted_on(); ?>
+												<?php sageus_posted_by(); ?>
 											</div>
 										endif;
 									?>
@@ -64,7 +64,7 @@ get_header();
 								</div>
 								
 								<footer class="entry-footer">
-									<?php sageus-theme_entry_footer(); ?>
+									<?php sageus_entry_footer(); ?>
 								</footer>
 							</article>
 							<?php

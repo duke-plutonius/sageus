@@ -8,7 +8,7 @@
  */
 
 // Get theme options
-$footer_image = get_theme_mod( 'sageus-theme_footer_image', '' );
+$footer_image = get_theme_mod( 'sageus_footer_image', '' );
 $is_front_page = is_front_page() && 'page' === get_option( 'show_on_front' );
 
 if ( $is_front_page ) {

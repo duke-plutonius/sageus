@@ -22,8 +22,8 @@
 <body <?php body_class(); ?>>
 	<?php
 		// Get theme options from Customizer
-		$header_top_text_left  = get_theme_mod( 'sageus-theme_header_top_text_left', '' );
-		$header_top_text_right = get_theme_mod( 'sageus-theme_header_top_text_right', '' );
+		$header_top_text_left  = get_theme_mod( 'sageus_header_top_text_left', '' );
+		$header_top_text_right = get_theme_mod( 'sageus_header_top_text_right', '' );
 		
 		// Determine if we're on the static front page
 		$is_front_page = is_front_page() && 'page' === get_option( 'show_on_front' );
@@ -74,7 +74,7 @@
 						'theme_location' => 'primary',
 						'menu_id'        => 'primary-menu',
 						'container'      => false,
-						'fallback_cb'    => 'sageus-theme_primary_menu_fallback',
+						'fallback_cb'    => 'sageus_primary_menu_fallback',
 					) );
 				?>
 			</nav>
