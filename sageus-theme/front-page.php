@@ -20,20 +20,20 @@ if ( 'posts' === get_option( 'show_on_front' ) ) {
 get_header();
 
 // Get theme options from Customizer
-$header_top_text_left  = get_theme_mod( 'sageus_header_top_text_left', '' );
-$header_top_text_right = get_theme_mod( 'sageus_header_top_text_right', '' );
-$footer_image          = get_theme_mod( 'sageus_footer_image', '' );
+$header_top_text_left  = get_theme_mod( 'sageus-theme_header_top_text_left', '' );
+$header_top_text_right = get_theme_mod( 'sageus-theme_header_top_text_right', '' );
+$footer_image          = get_theme_mod( 'sageus-theme_footer_image', '' );
 
 // Panel page IDs from Customizer
 $panel_pages = array();
 for ( $i = 1; $i <= 3; $i++ ) {
-	$panel_pages[ $i ] = get_theme_mod( "sageus_panel_page_$i", 0 );
+	$panel_pages[ $i ] = get_theme_mod( "sageus-theme_panel_page_$i", 0 );
 }
 
 // Panel column layouts from Customizer
 $panel_columns = array();
 for ( $i = 1; $i <= 3; $i++ ) {
-	$panel_columns[ $i ] = get_theme_mod( "sageus_panel_column_$i", 'one' );
+	$panel_columns[ $i ] = get_theme_mod( "sageus-theme_panel_column_$i", 'one' );
 }
 
 // Get hero page content
@@ -113,7 +113,7 @@ if ( $front_page_id ) {
 										<?php endif; ?>
 										<?php
 											// Display portfolio items (6 for front page panel)
-											sageus_display_portfolio_panel( 6 );
+											sageus-theme_display_portfolio_panel( 6 );
 										?>
 									</div>
 								</div>

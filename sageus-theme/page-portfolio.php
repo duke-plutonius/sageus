@@ -38,7 +38,7 @@ get_header();
 								the_content();
 								
 								// Display portfolio items
-								sageus_display_portfolio_items( 120, '' );
+								sageus-theme_display_portfolio_items( 120, '' );
 								?>
 						</div>
 						
@@ -48,7 +48,7 @@ get_header();
 									edit_post_link(
 										sprintf(
 											/* translators: %s: Name of current post */
-											__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus' ),
+											__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus-theme' ),
 											get_the_title()
 										),
 										'<span class="edit-link">',

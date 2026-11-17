@@ -1,5 +1,5 @@
 /*
-Theme Name: Sageus
+Theme Name: Sageus Theme
 Theme URI: 
 Author: Plutonius
 Author URI: 
@@ -7,7 +7,7 @@ Description: A trendy one-page parallax theme designed with book authors and fil
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: sageus
+Text Domain: sageus-theme
 Tags: one-column, two-columns, three-columns, left-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, portfolio
 */
 
@@ -1373,13 +1373,13 @@ body {
    ============================================ */
 
 @font-face {
-	font-family: 'sageus-social';
-	src: url('fonts/sageus-social.eot');
-	src: url('fonts/sageus-social.eot?#iefix') format('embedded-opentype'),
-		url('fonts/sageus-social.woff2') format('woff2'),
-		url('fonts/sageus-social.woff') format('woff'),
-		url('fonts/sageus-social.ttf') format('truetype'),
-		url('fonts/sageus-social.svg#sageus-social') format('svg');
+	font-family: 'sageus-theme-social';
+	src: url('fonts/sageus-theme-social.eot');
+	src: url('fonts/sageus-theme-social.eot?#iefix') format('embedded-opentype'),
+		url('fonts/sageus-theme-social.woff2') format('woff2'),
+		url('fonts/sageus-theme-social.woff') format('woff'),
+		url('fonts/sageus-theme-social.ttf') format('truetype'),
+		url('fonts/sageus-theme-social.svg#sageus-theme-social') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -1415,7 +1415,7 @@ body {
 .social-icon-vine:before,
 .social-icon-wordpress:before,
 .social-icon-youtube:before {
-	font-family: 'sageus-social';
+	font-family: 'sageus-theme-social';
 	font-size: 24px;
 	speak: none;
 	font-style: normal;

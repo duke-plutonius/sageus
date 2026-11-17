@@ -18,7 +18,7 @@ get_header();
 						
 						<?php if ( has_post_thumbnail() ) : ?>
 							<div class="single-featured-image">
-								<?php the_post_thumbnail( 'sageus-featured' ); ?>
+								<?php the_post_thumbnail( 'sageus-theme-featured' ); ?>
 							</div>
 						<?php endif; ?>
 						
@@ -27,8 +27,8 @@ get_header();
 								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 								
 								<div class="entry-meta">
-									<?php sageus_posted_on(); ?>
-									<?php sageus_posted_by(); ?>
+									<?php sageus-theme_posted_on(); ?>
+									<?php sageus-theme_posted_by(); ?>
 								</div>
 							</header>
 							
@@ -37,21 +37,21 @@ get_header();
 									the_content();
 									
 									wp_link_pages( array(
-										'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus' ),
+										'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus-theme' ),
 										'after'  => '</div>',
 									) );
 									?>
 							</div>
 							
 							<footer class="entry-footer">
-								<?php sageus_entry_footer(); ?>
+								<?php sageus-theme_entry_footer(); ?>
 								
 								<?php
 									if ( get_edit_post_link() ) :
 										edit_post_link(
 											sprintf(
 												/* translators: %s: Name of current post */
-												__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus' ),
+												__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus-theme' ),
 												get_the_title()
 											),
 											'<span class="edit-link">',
@@ -72,8 +72,8 @@ get_header();
 						<?php
 							// Previous/next post navigation
 							the_post_navigation( array(
-								'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post', 'sageus' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . esc_html__( 'Previous', 'sageus' ) . '</span> <span class="nav-title">%title</span>',
-								'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post', 'sageus' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . esc_html__( 'Next', 'sageus' ) . '</span> <span class="nav-title">%title</span>',
+								'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post', 'sageus-theme' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . esc_html__( 'Previous', 'sageus-theme' ) . '</span> <span class="nav-title">%title</span>',
+								'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post', 'sageus-theme' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . esc_html__( 'Next', 'sageus-theme' ) . '</span> <span class="nav-title">%title</span>',
 							) );
 							?>
 						

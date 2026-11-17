@@ -5,11 +5,11 @@
  */
 
 /* Customizer styles */
-#customize-controls .sageus-radio-image-control {
+#customize-controls .sageus-theme-radio-image-control {
 	margin: 15px 0;
 }
 
-#customize-controls .sageus-radio-image-label {
+#customize-controls .sageus-theme-radio-image-label {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	padding: 10px;
@@ -20,40 +20,40 @@
 	text-align: center;
 }
 
-#customize-controls .sageus-radio-image-label:hover {
+#customize-controls .sageus-theme-radio-image-label:hover {
 	border-color: #999;
 }
 
-#customize-controls .sageus-radio-image-label input[type="radio"] {
+#customize-controls .sageus-theme-radio-image-label input[type="radio"] {
 	position: absolute;
 	clip: rect(0, 0, 0, 0);
 	pointer-events: none;
 }
 
-#customize-controls .sageus-radio-image-label img {
+#customize-controls .sageus-theme-radio-image-label img {
 	max-width: 100px;
 	height: auto;
 	margin-bottom: 5px;
 	border-radius: 3px;
 }
 
-#customize-controls .sageus-radio-image-label:checked {
+#customize-controls .sageus-theme-radio-image-label:checked {
 	border-color: #2271b1;
 	background-color: #f0f0f1;
 }
 
 /* Theme options panel */
-#customize-controls .panel-sageus_theme_options {
+#customize-controls .panel-sageus-theme_theme_options {
 	background: #f9f9f9;
 }
 
-#customize-controls .panel-sageus_theme_options .control-section {
+#customize-controls .panel-sageus-theme_theme_options .control-section {
 	margin: 10px 0;
 	padding: 15px;
 	border-bottom: 1px solid #eee;
 }
 
-#customize-controls .panel-sageus_theme_options .control-section:last-child {
+#customize-controls .panel-sageus-theme_theme_options .control-section:last-child {
 	border-bottom: none;
 }
 
@@ -126,11 +126,11 @@
 }
 
 /* Portfolio widget */
-#widgets-right .widget-sageus-portfolio {
+#widgets-right .widget-sageus-theme-portfolio {
 	background: #f9f9f9;
 }
 
-#widgets-right .widget-sageus-portfolio .widget-title:before {
+#widgets-right .widget-sageus-theme-portfolio .widget-title:before {
 	content: "\f113";
 	font-family: dashicons;
 	font-size: 20px;

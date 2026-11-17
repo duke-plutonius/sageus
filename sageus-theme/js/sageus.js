@@ -89,7 +89,7 @@ jQuery(document).ready(function($) {
 	// ============================================
 	
 	// Add mobile menu button
-	var $mobileMenuButton = $('<button class="mobile-menu-toggle" aria-label="' + sageusData.menuToggleLabel + '" aria-expanded="false" aria-controls="primary-menu"><span class="screen-reader-text">' + sageusData.menuToggleLabel + '</span><span class="hamburger"></span></button>');
+	var $mobileMenuButton = $('<button class="mobile-menu-toggle" aria-label="' + sageus-themeData.menuToggleLabel + '" aria-expanded="false" aria-controls="primary-menu"><span class="screen-reader-text">' + sageus-themeData.menuToggleLabel + '</span><span class="hamburger"></span></button>');
 	
 	// Insert before the navigation
 	$('.main-navigation').before($mobileMenuButton);
@@ -186,7 +186,7 @@ jQuery(document).ready(function($) {
 	// Back to Top Button
 	// ============================================
 	
-	var $backToTop = $('<button class="back-to-top" aria-label="' + sageusData.backToTopLabel + '"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>');
+	var $backToTop = $('<button class="back-to-top" aria-label="' + sageus-themeData.backToTopLabel + '"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>');
 	$('body').append($backToTop);
 	
 	$backToTop.on('click', function() {

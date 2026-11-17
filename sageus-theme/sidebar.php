@@ -32,12 +32,12 @@ if ( is_front_page() && 'page' === get_option( 'show_on_front' ) ) {
 			// Fallback for when no widgets are active
 			?>
 			<div class="widget widget_search">
-				<h2 class="widget-title"><?php esc_html_e( 'Search', 'sageus' ); ?></h2>
+				<h2 class="widget-title"><?php esc_html_e( 'Search', 'sageus-theme' ); ?></h2>
 				<?php get_search_form(); ?>
 			</div>
 			
 			<div class="widget widget_recent_entries">
-				<h2 class="widget-title"><?php esc_html_e( 'Recent Posts', 'sageus' ); ?></h2>
+				<h2 class="widget-title"><?php esc_html_e( 'Recent Posts', 'sageus-theme' ); ?></h2>
 				<ul>
 					<?php
 						$recent_posts = wp_get_recent_posts( array(
@@ -61,7 +61,7 @@ if ( is_front_page() && 'page' === get_option( 'show_on_front' ) ) {
 			</div>
 			
 			<div class="widget widget_archive">
-				<h2 class="widget-title"><?php esc_html_e( 'Archives', 'sageus' ); ?></h2>
+				<h2 class="widget-title"><?php esc_html_e( 'Archives', 'sageus-theme' ); ?></h2>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>

@@ -8,7 +8,7 @@
  */
 
 // Get theme options
-$footer_image = get_theme_mod( 'sageus_footer_image', '' );
+$footer_image = get_theme_mod( 'sageus-theme_footer_image', '' );
 $is_front_page = is_front_page() && 'page' === get_option( 'show_on_front' );
 
 if ( $is_front_page ) {
@@ -41,7 +41,7 @@ if ( $is_front_page ) {
 				// Social menu
 				if ( has_nav_menu( 'social' ) ) :
 					?>
-					<nav class="social-menu" role="navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'sageus' ); ?>">
+					<nav class="social-menu" role="navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'sageus-theme' ); ?>">
 						<?php
 							wp_nav_menu( array(
 								'theme_location' => 'social',
@@ -61,14 +61,14 @@ if ( $is_front_page ) {
 			
 			<div class="footer-copyright">
 				<?php
-					printf( esc_html__( 'Theme: %1$s by %2$s.', 'sageus' ), 'Sageus', '<a href="">Plutonius</a>' );
+					printf( esc_html__( 'Theme: %1$s by %2$s.', 'sageus-theme' ), 'Sageus', '<a href="">Plutonius</a>' );
 					if ( function_exists( 'the_privacy_policy_link' ) ) {
 						the_privacy_policy_link( '', ' | ' );
 					}
 				?>
 				<br />
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sageus' ) ); ?>">
-					<?php printf( esc_html__( 'Proudly powered by %s', 'sageus' ), 'WordPress' ); ?>
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sageus-theme' ) ); ?>">
+					<?php printf( esc_html__( 'Proudly powered by %s', 'sageus-theme' ), 'WordPress' ); ?>
 				</a>
 			</div>
 		</div>
@@ -108,7 +108,7 @@ if ( $is_front_page ) {
 					// Social menu
 					if ( has_nav_menu( 'social' ) ) :
 						?>
-						<nav class="social-menu" role="navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'sageus' ); ?>">
+						<nav class="social-menu" role="navigation" aria-label="<?php esc_attr_e( 'Social Menu', 'sageus-theme' ); ?>">
 							<?php
 								wp_nav_menu( array(
 									'theme_location' => 'social',
@@ -128,14 +128,14 @@ if ( $is_front_page ) {
 				
 				<div class="footer-copyright">
 					<?php
-						printf( esc_html__( 'Theme: %1$s by %2$s.', 'sageus' ), 'Sageus', '<a href="">Plutonius</a>' );
+						printf( esc_html__( 'Theme: %1$s by %2$s.', 'sageus-theme' ), 'Sageus', '<a href="">Plutonius</a>' );
 						if ( function_exists( 'the_privacy_policy_link' ) ) {
 							the_privacy_policy_link( '', ' | ' );
 						}
 					?>
 					<br />
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sageus' ) ); ?>">
-						<?php printf( esc_html__( 'Proudly powered by %s', 'sageus' ), 'WordPress' ); ?>
+					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sageus-theme' ) ); ?>">
+						<?php printf( esc_html__( 'Proudly powered by %s', 'sageus-theme' ), 'WordPress' ); ?>
 					</a>
 				</div>
 			</div>

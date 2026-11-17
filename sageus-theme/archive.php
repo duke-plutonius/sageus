@@ -37,8 +37,8 @@ get_header();
 										
 										if ( 'post' === get_post_type() ) :
 											<div class="entry-meta">
-												<?php sageus_posted_on(); ?>
-												<?php sageus_posted_by(); ?>
+												<?php sageus-theme_posted_on(); ?>
+												<?php sageus-theme_posted_by(); ?>
 											</div>
 										endif;
 									?>
@@ -47,7 +47,7 @@ get_header();
 								<?php if ( has_post_thumbnail() ) : ?>
 									<div class="single-featured-image">
 										<a href="<?php the_permalink(); ?>">
-											<?php the_post_thumbnail( 'sageus-featured' ); ?>
+											<?php the_post_thumbnail( 'sageus-theme-featured' ); ?>
 										</a>
 									</div>
 								<?php endif; ?>
@@ -57,34 +57,34 @@ get_header();
 									
 									<?php
 										wp_link_pages( array(
-											'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus' ),
+											'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus-theme' ),
 											'after'  => '</div>',
 										) );
 										?>
 								</div>
 								
 								<footer class="entry-footer">
-									<?php sageus_entry_footer(); ?>
+									<?php sageus-theme_entry_footer(); ?>
 								</footer>
 							</article>
 							<?php
 						endwhile;
 						
 						the_posts_pagination( array(
-							'prev_text' => esc_html__( 'Previous', 'sageus' ),
-							'next_text' => esc_html__( 'Next', 'sageus' ),
-							'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'sageus' ) . ' </span>',
+							'prev_text' => esc_html__( 'Previous', 'sageus-theme' ),
+							'next_text' => esc_html__( 'Next', 'sageus-theme' ),
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'sageus-theme' ) . ' </span>',
 						) );
 						
 					?>
 				<?php else : ?>
 					<article class="no-results">
 						<header class="entry-header">
-							<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'sageus' ); ?></h1>
+							<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'sageus-theme' ); ?></h1>
 						</header>
 						
 						<div class="entry-content">
-							<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'sageus' ); ?></p>
+							<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'sageus-theme' ); ?></p>
 							<?php get_search_form(); ?>
 						</div>
 					</article>

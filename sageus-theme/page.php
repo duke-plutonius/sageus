@@ -38,7 +38,7 @@ if ( 'page-portfolio.php' === $template || false !== strpos( $template, 'page-po
 						
 						<?php if ( has_post_thumbnail() && ! $is_portfolio ) : ?>
 							<div class="page-featured-image">
-								<?php the_post_thumbnail( 'sageus-featured' ); ?>
+								<?php the_post_thumbnail( 'sageus-theme-featured' ); ?>
 							</div>
 						<?php endif; ?>
 						
@@ -52,7 +52,7 @@ if ( 'page-portfolio.php' === $template || false !== strpos( $template, 'page-po
 									the_content();
 									
 									wp_link_pages( array(
-										'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus' ),
+										'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sageus-theme' ),
 										'after'  => '</div>',
 									) );
 									?>
@@ -64,7 +64,7 @@ if ( 'page-portfolio.php' === $template || false !== strpos( $template, 'page-po
 										edit_post_link(
 											sprintf(
 												/* translators: %s: Name of current post */
-												__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus' ),
+												__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus-theme' ),
 												get_the_title()
 											),
 											'<span class="edit-link">',

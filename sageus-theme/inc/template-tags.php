@@ -8,7 +8,7 @@
 /**
  * Display the posted on date
  */
-function sageus_posted_on() {
+function sageus-theme_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -23,7 +23,7 @@ function sageus_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date */
-		esc_html_x( 'Posted on %s', 'post date', 'sageus' ),
+		esc_html_x( 'Posted on %s', 'post date', 'sageus-theme' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -33,10 +33,10 @@ function sageus_posted_on() {
 /**
  * Display the posted by author
  */
-function sageus_posted_by() {
+function sageus-theme_posted_by() {
 	$byline = sprintf(
 		/* translators: %s: post author */
-		esc_html_x( 'by %s', 'post author', 'sageus' ),
+		esc_html_x( 'by %s', 'post author', 'sageus-theme' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -46,28 +46,28 @@ function sageus_posted_by() {
 /**
  * Display the entry footer with categories, tags, etc.
  */
-function sageus_entry_footer() {
+function sageus-theme_entry_footer() {
 	// Hide category and tag text for pages
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'sageus' ) );
-		if ( $categories_list && sageus_categorized_blog() ) {
+		$categories_list = get_the_category_list( esc_html__( ', ', 'sageus-theme' ) );
+		if ( $categories_list && sageus-theme_categorized_blog() ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'sageus' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'sageus-theme' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'sageus' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'sageus-theme' ) );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'sageus' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'sageus-theme' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		comments_popup_link(
-			sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sageus' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() )
+			sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sageus-theme' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() )
 		);
 		echo '</span>';
 	}
@@ -76,7 +76,7 @@ function sageus_entry_footer() {
 		sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus' ),
+				__( 'Edit <span class="screen-reader-text">%s</span>', 'sageus-theme' ),
 				array(
 					'span' => array(
 						'class' => array(),
@@ -93,8 +93,8 @@ function sageus_entry_footer() {
 /**
  * Check if the blog has more than one category
  */
-function sageus_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'sageus_categories' ) ) ) {
+function sageus-theme_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'sageus-theme_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -106,36 +106,36 @@ function sageus_categorized_blog() {
 		// Count the number of categories that are attached to the posts
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'sageus_categories', $all_the_cool_cats );
+		set_transient( 'sageus-theme_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than one category so sageus_categorized_blog should return true
+		// This blog has more than one category so sageus-theme_categorized_blog should return true
 		return true;
 	} else {
-		// This blog has only one category so sageus_categorized_blog should return false
+		// This blog has only one category so sageus-theme_categorized_blog should return false
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in sageus_categorized_blog
+ * Flush out the transients used in sageus-theme_categorized_blog
  */
-function sageus_category_transient_flusher() {
+function sageus-theme_category_transient_flusher() {
 	// Like, beat it. Dig it.
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// OK, that's a little old school. Let's try this.
-	delete_transient( 'sageus_categories' );
+	delete_transient( 'sageus-theme_categories' );
 }
-add_action( 'edit_category', 'sageus_category_transient_flusher' );
-add_action( 'save_post', 'sageus_category_transient_flusher' );
+add_action( 'edit_category', 'sageus-theme_category_transient_flusher' );
+add_action( 'save_post', 'sageus-theme_category_transient_flusher' );
 
 /**
  * Get the social icon for a URL
  */
-function sageus_get_social_icon( $url ) {
+function sageus-theme_get_social_icon( $url ) {
 	$url = strtolower( $url );
 	
 	// Define social services and their icons
@@ -195,7 +195,7 @@ function sageus_get_social_icon( $url ) {
 /**
  * Display social menu
  */
-function sageus_social_menu() {
+function sageus-theme_social_menu() {
 	if ( has_nav_menu( 'social' ) ) {
 		wp_nav_menu( array(
 			'theme_location' => 'social',
@@ -213,14 +213,14 @@ function sageus_social_menu() {
 /**
  * Get the portfolio items count
  */
-function sageus_get_portfolio_count() {
+function sageus-theme_get_portfolio_count() {
 	// Check if Jetpack Portfolio plugin is active
 	if ( class_exists( 'Jetpack_Portfolio' ) && post_type_exists( 'jetpack-portfolio' ) ) {
 		$post_type = 'jetpack-portfolio';
 	} elseif ( post_type_exists( 'portfolio' ) ) {
 		$post_type = 'portfolio';
 	} else {
-		$post_type = 'sageus_portfolio';
+		$post_type = 'sageus-theme_portfolio';
 	}
 
 	$count = wp_count_posts( $post_type );
@@ -230,19 +230,19 @@ function sageus_get_portfolio_count() {
 /**
  * Check if we're on a portfolio page
  */
-function sageus_is_portfolio() {
+function sageus-theme_is_portfolio() {
 	// Check if it's a portfolio archive
-	if ( is_post_type_archive( array( 'jetpack-portfolio', 'portfolio', 'sageus_portfolio' ) ) ) {
+	if ( is_post_type_archive( array( 'jetpack-portfolio', 'portfolio', 'sageus-theme_portfolio' ) ) ) {
 		return true;
 	}
 
 	// Check if it's a portfolio single
-	if ( is_singular( array( 'jetpack-portfolio', 'portfolio', 'sageus_portfolio' ) ) ) {
+	if ( is_singular( array( 'jetpack-portfolio', 'portfolio', 'sageus-theme_portfolio' ) ) ) {
 		return true;
 	}
 
 	// Check if it's a portfolio taxonomy
-	if ( is_tax( array( 'jetpack-portfolio-type', 'portfolio_type', 'sageus_portfolio_type' ) ) ) {
+	if ( is_tax( array( 'jetpack-portfolio-type', 'portfolio_type', 'sageus-theme_portfolio_type' ) ) ) {
 		return true;
 	}
 
@@ -257,14 +257,14 @@ function sageus_is_portfolio() {
 /**
  * Get the portfolio URL
  */
-function sageus_get_portfolio_url() {
+function sageus-theme_get_portfolio_url() {
 	// Check if Jetpack Portfolio plugin is active
 	if ( class_exists( 'Jetpack_Portfolio' ) && post_type_exists( 'jetpack-portfolio' ) ) {
 		return get_post_type_archive_link( 'jetpack-portfolio' );
 	} elseif ( post_type_exists( 'portfolio' ) ) {
 		return get_post_type_archive_link( 'portfolio' );
-	} elseif ( post_type_exists( 'sageus_portfolio' ) ) {
-		return get_post_type_archive_link( 'sageus_portfolio' );
+	} elseif ( post_type_exists( 'sageus-theme_portfolio' ) ) {
+		return get_post_type_archive_link( 'sageus-theme_portfolio' );
 	}
 	
 	return home_url( '/portfolio/' );

@@ -1,4 +1,4 @@
-=== Sageus ===
+=== Sageus Theme ===
 
 Contributors: Plutonius
 Donate link: 
@@ -36,7 +36,7 @@ Sageus is a modern, minimal WordPress theme with parallax scrolling effects, per
 
 == Installation ==
 
-1. Upload the `sageus-theme` folder to the `/wp-content/themes/` directory
+1. Upload the `sageus-theme-theme` folder to the `/wp-content/themes/` directory
 2. Activate the theme through the 'Appearance > Themes' menu in WordPress
 3. Set up your static front page in 'Settings > Reading' or use the default blog format
 
@@ -120,7 +120,7 @@ A: Yes! Sageus is compatible with Jetpack's Portfolio module. If you have anothe
 A: The header becomes fixed when you scroll down the page. This is built into the theme's JavaScript.
 
 **Q: Can I change the parallax effect speed?**
-A: Yes, you can modify the parallax speed by editing the JavaScript in `/js/sageus.js`. Look for the `translateY` values and adjust the multipliers.
+A: Yes, you can modify the parallax speed by editing the JavaScript in `/js/sageus-theme.js`. Look for the `translateY` values and adjust the multipliers.
 
 **Q: How do I add custom CSS?**
 A: Go to **Appearance > Customize > Additional CSS** and add your custom styles there.

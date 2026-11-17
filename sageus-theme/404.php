@@ -15,16 +15,16 @@ get_header();
 				
 				<section class="error-404 not-found">
 					<header class="page-header">
-						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sageus' ); ?></h1>
+						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sageus-theme' ); ?></h1>
 					</header>
 					
 					<div class="page-content">
-						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sageus' ); ?></p>
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sageus-theme' ); ?></p>
 						
 						<?php get_search_form(); ?>
 						
 						<div class="widget widget_recent_entries">
-							<h2 class="widget-title"><?php esc_html_e( 'Recent Posts', 'sageus' ); ?></h2>
+							<h2 class="widget-title"><?php esc_html_e( 'Recent Posts', 'sageus-theme' ); ?></h2>
 							<ul>
 								<?php
 									$recent_posts = wp_get_recent_posts( array(
@@ -48,14 +48,14 @@ get_header();
 						</div>
 						
 						<div class="widget widget_categories">
-							<h2 class="widget-title"><?php esc_html_e( 'Categories', 'sageus' ); ?></h2>
+							<h2 class="widget-title"><?php esc_html_e( 'Categories', 'sageus-theme' ); ?></h2>
 							<ul>
 								<?php wp_list_categories( array( 'title_li' => '' ) ); ?>
 							</ul>
 						</div>
 						
 						<div class="widget widget_archive">
-							<h2 class="widget-title"><?php esc_html_e( 'Archives', 'sageus' ); ?></h2>
+							<h2 class="widget-title"><?php esc_html_e( 'Archives', 'sageus-theme' ); ?></h2>
 							<ul>
 								<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 							</ul>

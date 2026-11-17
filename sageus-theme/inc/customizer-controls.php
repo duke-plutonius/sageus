@@ -21,7 +21,7 @@ class Sageus_Customizer_Dropdown_Pages_Control extends WP_Customize_Control {
 		$dropdown = wp_dropdown_pages( array(
 			'name'              => '_customize-dropdown-pages-' . $this->id,
 			'echo'              => 0,
-			'show_option_none'  => __( '&mdash; Select &mdash;', 'sageus' ),
+			'show_option_none'  => __( '&mdash; Select &mdash;', 'sageus-theme' ),
 			'option_none_value' => '0',
 			'selected'          => $this->value(),
 			'allow_addition'    => $this->allow_addition,
@@ -66,9 +66,9 @@ class Sageus_Customizer_Radio_Image_Control extends WP_Customize_Control {
 			<?php if ( ! empty( $this->description ) ) : ?>
 				<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 			<?php endif; ?>
-			<div class="sageus-radio-image-control">
+			<div class="sageus-theme-radio-image-control">
 				<?php foreach ( $this->choices as $value => $label ) : ?>
-					<label class="sageus-radio-image-label">
+					<label class="sageus-theme-radio-image-label">
 						<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $value ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
 						<img src="<?php echo esc_url( $label['image'] ); ?>" alt="<?php echo esc_attr( $label['name'] ); ?>" />
 						<span><?php echo esc_html( $label['name'] ); ?></span>
